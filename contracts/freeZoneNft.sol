@@ -29,12 +29,12 @@ contract FreeZone is ERC721 {
         _symbol = symbol_;
     }
     // function
-    function registerFreeZone (string memory country, uint256 age ) public {
+    function registerFreeZoneSimple (string memory country, uint256 age ) public {
         require (msg.sender != _register, "registerFreeZone : you are register");
         msg.sender += _register;
     }
 
-    function registerPro () public {
+    function registerFreeZonePro () public {
         require (msg.sender != _register, "registerFreeZone : you are register");
         msg.sender += _register;
     }
