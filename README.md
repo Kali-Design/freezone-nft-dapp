@@ -7,7 +7,7 @@
 
 ## README.md 
 
-- Working progress - New project January 2022
+- Working progress + NatSpec - New project January 2022
 - Smart Contract Free Zone NFT
 
 ## Auteur
