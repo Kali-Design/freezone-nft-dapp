@@ -15,9 +15,9 @@ contract FreeZone is ERC721 {
         string wording;
         string item;
     }
-    // Token name
+    // token name
     string private _name;
-    // Token symbol
+    // token symbol
     string private _symbol;
     // mapping of people is register
     mapping(uint256 => address) private _register;
