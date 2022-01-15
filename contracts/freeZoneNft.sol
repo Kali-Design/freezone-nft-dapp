@@ -12,8 +12,8 @@ contract FreeZone is ERC721 {
         string pseudo;
         uint256 age;
         string country;
-        string wording;
-        string item;
+        string description;
+        string image;
     }
     // token name
     string private _name;
