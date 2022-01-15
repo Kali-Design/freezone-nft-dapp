@@ -19,8 +19,8 @@ contract freeZone is ERC721 {
     mapping(address => string) private _pseudo;
     mapping(address => uint256) private _age;
     mapping(address => string) private _country;
-    mapping(address => string) private _wording;
-    mapping(address => string) private _item;
+    mapping(address => string) private _description;
+    mapping(address => string) private _image;
 
     // mapping of simple is register
     mapping(address => bool) private _simple;
@@ -32,11 +32,11 @@ contract freeZone is ERC721 {
     mapping(address => uint256) private _balances;
     
     // event simple
-    event RegisterSimple(address indexed addr, string pseudo, uint256 age, string country, string wording , string item );
+    event RegisterSimple(address indexed addr, string pseudo, uint256 age, string country, string description, string image);
     event RegisterSimple(address indexed , string pseudo);
-    event ModifiedSimple(address indexed addr, string pseudo, uint256 age, string country, string wording , string item );
+    event ModifiedSimple(address indexed addr, string pseudo, uint256 age, string country, string description, string image);
     // event pro
-    event RegisterPro(address indexed addr, string pseudo, uint256 age, string country, string wording , string item );
+    event RegisterPro(address indexed addr, string pseudo, uint256 age, string country, string description, string image);
     event RegisterPro(address indexed , string pseudo);
-    event ModifiedPro(address indexed addr, string pseudo, uint256 age, string country, string wording , string item );
+    event ModifiedPro(address indexed addr, string pseudo, uint256 age, string country, string description, string image);
 }
