@@ -30,6 +30,7 @@ contract freeZone is ERC721 {
 
     // mapping of the register balance
     mapping(address => uint256) private _balances;
+    
     // event simple
     event RegisterSimple(address indexed addr, string pseudo, uint256 age, string country, string wording , string item );
     event RegisterSimple(address indexed , string pseudo);
