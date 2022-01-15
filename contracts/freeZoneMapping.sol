@@ -15,7 +15,7 @@ contract freeZone is ERC721 {
     // Token symbol
     string private _symbol;
 
-    // free zone simple (Simple and Pro)
+    // free zone (Simple and Pro)
     mapping(address => string) private _pseudo;
     mapping(address => uint256) private _age;
     mapping(address => string) private _country;
