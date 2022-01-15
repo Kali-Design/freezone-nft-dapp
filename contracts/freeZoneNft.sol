@@ -5,7 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 
 contract FreeZone is ERC721 {
 
-    // enum ?
+    // enum later
     // struct
     struct Customer {
         address freeZoneAddress;
@@ -29,13 +29,13 @@ contract FreeZone is ERC721 {
         _symbol = symbol_;
     }
     // function
-    function registerFreeZoneSimple (string memory country, uint256 age ) public {
-        require (msg.sender != _register, "registerFreeZone : you are register");
+    function registerFreeZoneSimple (string memory country, uint256 age) public {
+        require (msg.sender != _register, "registerFreeZone : you are register simple");
         msg.sender += _register;
     }
 
-    function registerFreeZonePro () public {
-        require (msg.sender != _register, "registerFreeZone : you are register");
+    function registerFreeZonePro (string memory country, uint256 age) public {
+        require (msg.sender != _register, "registerFreeZone : you are register pro");
         msg.sender += _register;
     }
     //function view
