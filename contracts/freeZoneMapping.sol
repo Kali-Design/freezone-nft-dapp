@@ -39,4 +39,39 @@ contract freeZone is ERC721 {
     event RegisterPro(address indexed addr, string pseudo, uint256 age, string country, string description, string image);
     event RegisterPro(address indexed , string pseudo);
     event ModifiedPro(address indexed addr, string pseudo, uint256 age, string country, string description, string image);
+
+    // constructor
+    constructor(string memory name_, string memory symbol_) ERC721(name_, symbol_) {
+        _name = name_;
+        _symbol = symbol_;
+    }
+
+     // function
+    function registerSimple(string memory pseudo_ , uint256 age_ , string memory country_, string memory description_, string memory image_) public {
+        require(_simple[msg.sender] == false, "freeZone you are already registered as simple");
+        require(_pro[msg.sender] == false, "freeZone: you are already registered as pro");
+        _pseudo[msg.sender] = pseudo_;
+        _age[msg.sender] = age_;
+        _country[msg.sender] = country_;
+        _description[msg.sender] = description_;
+        _image[msg.sender] = image_;
+        _simple[msg.sender] = true;
+
+        emit RegisterSimple(msg.sender, _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _image[msg.sender]);
+    }
+
+    function registerPro(string memory pseudo_) public {
+        require(_pro[msg.sender] == false, "freeZone: you are already registered as pro");
+        require(_simple[msg.sender] == false, "freeZone: you are already registered as simple");
+        _pseudo[msg.sender] = pseudo_;
+        _age[msg.sender] = age_;
+        _country[msg.sender] = country_;
+        _description[msg.sender] = description_;
+        _image[msg.sender] = image_;
+        _pseudo[msg.sender] = pseudo_;
+        _pro[msg.sender] = true;
+
+        emit RegisterPro(msg.sender, _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _image[msg.sender]);
+
+    }
 }
