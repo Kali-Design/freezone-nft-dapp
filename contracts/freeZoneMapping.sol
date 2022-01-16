@@ -68,7 +68,6 @@ contract freeZone is ERC721 {
         _country[msg.sender] = country_;
         _description[msg.sender] = description_;
         _image[msg.sender] = image_;
-        _pseudo[msg.sender] = pseudo_;
         _pro[msg.sender] = true;
 
         emit RegisterPro(msg.sender, _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _image[msg.sender]);
