@@ -82,6 +82,6 @@ contract freeZone is ERC721 {
         _description[msg.sender] = description_;
         _image[msg.sender] = image_;
 
-        emit ModifiedUser(msg.sender , _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _image[msg.sender]);
+        emit ModifyProfile(msg.sender , _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _image[msg.sender]);
     }
 }
