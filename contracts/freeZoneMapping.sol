@@ -72,4 +72,16 @@ contract freeZone is ERC721 {
 
         emit RegisterPro(msg.sender, _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _image[msg.sender]);
     }
+    
+    function modifyProfile(string memory pseudo_ , uint256 age_ , string memory country_, string memory description_, string memory image_) public {
+        require(_simple[msg.sender] == true, "freeZone: only user can use this function");
+        require(_pro[msg.sender] == false, "freeZone: only user can use this function");
+        _pseudo[msg.sender] = pseudo_;
+        _age[msg.sender] = age_;
+        _country[msg.sender] = country_;
+        _description[msg.sender] = description_;
+        _image[msg.sender] = image_;
+
+        emit ModifiedUser(msg.sender , _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _image[msg.sender]);
+    }
 }
