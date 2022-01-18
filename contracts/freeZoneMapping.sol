@@ -84,9 +84,11 @@ contract freeZone is ERC721 {
 
         emit ModifyProfile(msg.sender , _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _image[msg.sender]);
     }
+
     function balancesOf(address user_) public view returns (uint256) {
         require(_simple[user_] == true, "freeZone: you are not registred");
         require(user_ != address(0), "freeZone: balance query for the zero address");
         return _balances[user_];
     }
+    // Todo Get
 }
