@@ -8,7 +8,7 @@ contract freeZone is ERC721 {
     // using address from openzeppelin
     using Address for address payable;
 
-        // Token name
+    // Token name
     string private _name;
 
     // Token symbol
