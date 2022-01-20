@@ -5,7 +5,6 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Address.sol";
 
 contract freeZone is ERC721 {
-
     // using address from openzeppelin
     using Address for address payable;
 
@@ -46,7 +45,7 @@ contract freeZone is ERC721 {
         _symbol = symbol_;
     }
 
-     // function
+    // functions
     function registerSimple(string memory pseudo_ , uint256 age_ , string memory country_, string memory description_, string memory image_) public {
         require(_simple[msg.sender] == false, "freeZone you are already registered as simple");
         require(_pro[msg.sender] == false, "freeZone: you are already registered as pro");
@@ -90,5 +89,30 @@ contract freeZone is ERC721 {
         require(user_ != address(0), "freeZone: balance query for the zero address");
         return _balances[user_];
     }
-    // Todo Get
-}
+    
+    // function view for each states of customer
+    function getPseudo (address user_) public view returns (string memory) {
+        return _pseudo[user_];
+    }
+    function getAge (address user_) public view returns (uint256) {
+        return _age[user_];
+    }
+    function getCountry (address user_) public view returns (string memory) {
+        return _country[user_];
+    }
+
+    function getDescription (address user_) public view returns (string memory) {
+        return _description[user_];
+    }
+
+    function getImage (address user_) public view returns (string memory) {
+        return _image[user_];
+    }
+    // optionnal to check status
+    function getStatus (address user_) public view returns (uint256) {
+        uint256 status = 0;
+        if(_simple[user_] == true) return 1;
+        if(_pro[user_] == true) return 2;
+        return status ;
+    }
+}  
