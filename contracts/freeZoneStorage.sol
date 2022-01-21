@@ -31,7 +31,7 @@ contract freeZone is ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl {
         string image;
     }
 
-    // mapping of worker is register
+    // mapping of simple is register
     mapping(address => bool) private _simple;
 
     // mapping of pro is register
