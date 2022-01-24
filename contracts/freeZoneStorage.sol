@@ -41,7 +41,7 @@ contract freeZone is ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl {
     mapping(address => uint256) private _balances;
     
     // constructor
-    constructor() ERC721("freeZoneNFTpro", "FNP") {
+    constructor() ERC721("freeZoneNFTsimple", "freeZoneNFTpro", "FNP") {
         _setupRole(MINTER_ROLE, msg.sender);
     }
 
