@@ -40,5 +40,39 @@ contract freeZone is ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl {
     // mapping of the register balance
     mapping(address => uint256) private _balances;
     
-    // working progress
+    // constructor
+    constructor() ERC721("freeZoneNFTpro", "FNP") {
+        _setupRole(MINTER_ROLE, msg.sender);
+    }
+
+    // function
+
+    function registerFreeZoneSimple(string memory pseudo , uint256 age, string memory country, string memory description, string memory image) public onlyRole(MINTER_ROLE) returns (uint256){
+        require(_simple[msg.sender] == false, "freeZone: you are already registered as simple");
+        require(_pro[msg.sender] == false, "freeZone: you are already registered as pro");
+        _fnpIds.increment();
+        uint256 currentId = _fnpIds.current();
+        _mint(msg.sender, currentId);
+        _setTokenURI(currentId, currentId.toString());
+        _zonesimple[currentId] = ZoneSimple(pseudo, age, country, description, image);
+        _simple[msg.sender] = true;
+        return currentId;
+
+        emit RegisterSimple(msg.sender, pseudo);
+    }
+
+    function registerFreeZonePro(string memory pseudo , uint256 age, string memory country, string memory description, string memory image) public onlyRole(MINTER_ROLE) returns (uint256){
+        require(_pro[msg.sender] == false, "freeZone: you are already registered as pro");
+        require(_simple[msg.sender] == false, "freeZone: you are already registered as simple");
+        _fnpIds.increment();
+        uint256 currentId = _fnpIds.current();
+        _mint(msg.sender, currentId);
+        _setTokenURI(currentId, currentId.toString());
+        _zonepro[currentId] = ZonePro(pseudo, age, country, description, image);
+        _pro[msg.sender] = true;
+        return currentId;
+
+        emit RegisterPro(msg.sender, pseudo);
+    }
+    // Working progress
 }

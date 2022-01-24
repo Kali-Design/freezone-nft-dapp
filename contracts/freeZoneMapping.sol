@@ -47,7 +47,7 @@ contract freeZone is ERC721 {
 
     // functions
     function registerSimple(string memory pseudo_ , uint256 age_ , string memory country_, string memory description_, string memory image_) public {
-        require(_simple[msg.sender] == false, "freeZone you are already registered as simple");
+        require(_simple[msg.sender] == false, "freeZone : you are already registered as simple");
         require(_pro[msg.sender] == false, "freeZone: you are already registered as pro");
         _pseudo[msg.sender] = pseudo_;
         _age[msg.sender] = age_;
