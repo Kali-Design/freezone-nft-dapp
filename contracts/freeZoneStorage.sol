@@ -74,5 +74,17 @@ contract freeZone is ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl {
 
         emit RegisterPro(msg.sender, pseudo);
     }
+    
+    function getFreeZoneById(uint256 id) public view returns (ZoneSimple memory) {
+        return _zoneSimple[id];
+    }
+
+    function getFreeZoneById(uint256 id) public view returns (ZonePro memory) {
+        return _zonePro[id];
+    }
+
+    function tokenURI(uint256 tokenId) public view virtual override(ERC721URIStorage, ERC721) returns (string memory) {
+        return super.tokenURI(tokenId);
+    }
     // Working progress
 }
