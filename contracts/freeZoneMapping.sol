@@ -19,7 +19,7 @@ contract freeZone is ERC721 {
     mapping(address => uint256) private _age;
     mapping(address => string) private _country;
     mapping(address => string) private _description;
-    mapping(address => string) private _image;
+    mapping(address => string) private _art;
 
     // mapping of simple is register
     mapping(address => bool) private _simple;
@@ -31,13 +31,13 @@ contract freeZone is ERC721 {
     mapping(address => uint256) private _balances;
     
     // event simple
-    event RegisterSimple(address indexed addr, string pseudo, uint256 age, string country, string description, string image);
+    event RegisterSimple(address indexed addr, string pseudo, uint256 age, string country, string description, string art);
     event RegisterSimple(address indexed , string pseudo);
-    event ModifiedSimple(address indexed addr, string pseudo, uint256 age, string country, string description, string image);
+    event ModifiedSimple(address indexed addr, string pseudo, uint256 age, string country, string description, string art);
     // event pro
-    event RegisterPro(address indexed addr, string pseudo, uint256 age, string country, string description, string image);
+    event RegisterPro(address indexed addr, string pseudo, uint256 age, string country, string description, string art);
     event RegisterPro(address indexed , string pseudo);
-    event ModifiedPro(address indexed addr, string pseudo, uint256 age, string country, string description, string image);
+    event ModifiedPro(address indexed addr, string pseudo, uint256 age, string country, string description, string art);
 
     // constructor
     constructor(string memory name_, string memory symbol_) ERC721(name_, symbol_) {
@@ -46,42 +46,42 @@ contract freeZone is ERC721 {
     }
 
     // functions
-    function registerSimple(string memory pseudo_ , uint256 age_ , string memory country_, string memory description_, string memory image_) public {
+    function registerSimple(string memory pseudo_ , uint256 age_ , string memory country_, string memory description_, string memory art_) public {
         require(_simple[msg.sender] == false, "freeZone : you are already registered as simple");
         require(_pro[msg.sender] == false, "freeZone: you are already registered as pro");
         _pseudo[msg.sender] = pseudo_;
         _age[msg.sender] = age_;
         _country[msg.sender] = country_;
         _description[msg.sender] = description_;
-        _image[msg.sender] = image_;
+        _image[msg.sender] = art_;
         _simple[msg.sender] = true;
 
         emit RegisterSimple(msg.sender, _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _image[msg.sender]);
     }
 
-    function registerPro(string memory pseudo_ , uint256 age_ , string memory country_, string memory description_, string memory image_) public {
+    function registerPro(string memory pseudo_ , uint256 age_ , string memory country_, string memory description_, string memory art_) public {
         require(_pro[msg.sender] == false, "freeZone: you are already registered as pro");
         require(_simple[msg.sender] == false, "freeZone: you are already registered as simple");
         _pseudo[msg.sender] = pseudo_;
         _age[msg.sender] = age_;
         _country[msg.sender] = country_;
         _description[msg.sender] = description_;
-        _image[msg.sender] = image_;
+        _image[msg.sender] = art_;
         _pro[msg.sender] = true;
 
-        emit RegisterPro(msg.sender, _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _image[msg.sender]);
+        emit RegisterPro(msg.sender, _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _art[msg.sender]);
     }
     
-    function modifyProfile(string memory pseudo_ , uint256 age_ , string memory country_, string memory description_, string memory image_) public {
+    function modifyProfile(string memory pseudo_ , uint256 age_ , string memory country_, string memory description_, string memory art_) public {
         require(_simple[msg.sender] == true, "freeZone: only user can use this function");
         require(_pro[msg.sender] == false, "freeZone: only user can use this function");
         _pseudo[msg.sender] = pseudo_;
         _age[msg.sender] = age_;
         _country[msg.sender] = country_;
         _description[msg.sender] = description_;
-        _image[msg.sender] = image_;
+        _image[msg.sender] = art_;
 
-        emit ModifyProfile(msg.sender , _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _image[msg.sender]);
+        emit ModifyProfile(msg.sender , _pseudo[msg.sender], _age[msg.sender], _country[msg.sender], _description[msg.sender], _art[msg.sender]);
     }
 
     function balancesOf(address user_) public view returns (uint256) {
@@ -105,8 +105,8 @@ contract freeZone is ERC721 {
         return _description[user_];
     }
 
-    function getImage (address user_) public view returns (string memory) {
-        return _image[user_];
+    function getArt (address user_) public view returns (string memory) {
+        return _art[user_];
     }
     // optionnal to check status
     function getStatus (address user_) public view returns (uint256) {
