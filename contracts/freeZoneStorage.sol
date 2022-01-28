@@ -46,7 +46,6 @@ contract freeZone is ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl {
     }
 
     // function
-
     function registerFreeZoneSimple(string memory pseudo , uint256 age, string memory country, string memory description, string memory art) public onlyRole(MINTER_ROLE) returns (uint256){
         require(_simple[msg.sender] == false, "freeZone: you are already registered as simple");
         require(_pro[msg.sender] == false, "freeZone: you are already registered as pro");
