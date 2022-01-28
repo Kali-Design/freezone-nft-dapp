@@ -86,5 +86,20 @@ contract freeZone is ERC721, ERC721Enumerable, ERC721URIStorage, AccessControl {
     function tokenURI(uint256 tokenId) public view virtual override(ERC721URIStorage, ERC721) returns (string memory) {
         return super.tokenURI(tokenId);
     }
-    // Working progress
+    
+    function supportsInterface(bytes4 interfaceId) public view virtual override(ERC721Enumerable, ERC721, AccessControl) returns (bool) {
+        return super.supportsInterface(interfaceId);
+    }
+
+    function _beforeTokenTransfer(
+        address from,
+        address to,
+        uint256 tokenId
+    )  internal virtual override(ERC721Enumerable, ERC721) {
+        super._beforeTokenTransfer(from, to, tokenId);
+    }
+
+    function _burn(uint256 tokenId) internal virtual override(ERC721URIStorage, ERC721) {
+        super._burn(tokenId);
+    }
 }
