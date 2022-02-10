@@ -8,6 +8,7 @@ const freeZoneStorage = contract.fromArtifact('freeZoneStorage');
 
 contract('balance', function ([sender, receiver]) {
   describe('current', function () {
+    const [dev, owner, user1] = accounts;
     it('returns the current balance of an account as a BN in wei', async function () {
       expect(await balance.current(sender)).to.be.bignumber.equal(await web3.eth.getBalance(sender));
     });
