@@ -25,8 +25,8 @@
           "literals": [
             "solidity",
             "^",
-            "0.6",
-            ".0"
+            "0.8",
+            ".6"
           ],
           "nodeType": "PragmaDirective",
           "src": "33:23:6"
