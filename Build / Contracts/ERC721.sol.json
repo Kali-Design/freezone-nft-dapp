@@ -1,5 +1,5 @@
 {
-    "contractName": "ERC721" ,
+    "contractName": "ERC721",
     "abi": [
       {
         "constant": true,
