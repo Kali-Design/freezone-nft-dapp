@@ -1,5 +1,5 @@
 {
-    "contractName": "freeZoneStorage",
+    "contractName": "freeZoneStorage" ,
     "abi": [
       {
         "inputs": [
